@@ -6,7 +6,6 @@ load_dotenv()
 BASE_URL = "http://api.weatherapi.com/v1"
 
 
-
 def get_weather(city: str, ) -> None:
     api_key = os.getenv("API_KEY")
     url = f"{BASE_URL}/current.json?key={api_key}&q={city}"
@@ -14,7 +13,7 @@ def get_weather(city: str, ) -> None:
 
     if response.status_code == 200:
         api_wer = response.json()
-        city_name =api_wer["location"]["name"]
+        city_name = api_wer["location"]["name"]
         country_name = api_wer["location"]["country"]
         local_time = api_wer["location"]["localtime"]
         temp_c = api_wer["current"]["temp_c"]
